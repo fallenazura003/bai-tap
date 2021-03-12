@@ -1,0 +1,150 @@
+A
+1.
+a: vòng lặp for
+b: vòng lặp while
+c: vòng lặp for
+d: vòng lặp while
+e: vòng lặp while
+2.
+#include<iostream>
+using namespace std;
+
+int main()
+{
+	int k;
+	cin >> k;
+	while(k>=3)
+	{
+	k=k/3;
+	}
+	cout << k;
+	return 0;
+}
+3. vòng lặp do while.
+
+B
+1.b
+2.d
+3.c
+4.b
+5.c
+6.b
+7.b
+8.a,c
+9.d
+10.d
+11.c
+12.d
+13.b
+14.b
+15.b
+16.c
+17.c
+18.d
+19.a
+20.c
+
+C
+1.#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main()
+{
+    int n;
+    cin >> n;
+    if(n==0||n==1)
+        cout << "no";
+    else
+    {
+        int count=0;
+        for(int i=2;i<=sqrt(n);i++)
+        {
+            if(n%i==0)
+                count ++;
+        }
+        if(count)
+            cout << "no";
+        else
+            cout << "yes";
+    }
+}
+2.#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int n;
+    cin >> n;
+    for(int i=1;i<=n;i++){
+        for(int k=n-i;k<n-1;k++)
+            cout << ' ';
+        for(int j=n+1-i;j>0;j--)
+            {
+                cout<<"*";
+            }
+        cout << endl;
+    }
+}
+3.
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int n;
+    cin >> n;
+    for(int i=1;i<=n*2;i+=2){
+        for(int k=0;k<(n-i/2-1);k++)
+            cout << ' ';
+        for(int j=1;j<=i;j++)
+            {
+                cout<<"*";
+            }
+        cout << endl;
+    }
+}
+4.  
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int n;
+    cin >> n;
+    for(int i=1;i<=n*2;i+=2){
+        for(int k=n;k>n-i/2;k--)
+            cout << ' ';
+        for(int j=n*2-1;j>=i;j--)
+            cout<<"*";
+        cout << endl;
+    }
+}
+6.#include<iostream>
+
+using namespace std;
+
+int main()
+{
+	int a[11][11]={1,2,3,4,5,6,7,8,9,10};
+	for(int i=0; i<=10;i++)
+	{
+		for(int j=0; j<=10;j++)
+		{
+			a[i+1][j-1]=a[i][j];
+		}
+	}
+	for(int i=0; i<10;i++)
+	{
+		for(int j=0; j<10;j++)
+		{
+			cout << a[i][j];
+		}
+		cout << endl;
+	}
+	return 0;
+}
