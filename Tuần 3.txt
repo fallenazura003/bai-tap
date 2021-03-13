@@ -1,0 +1,135 @@
+B
+1.iv
+2.ii
+3.ii
+4.i
+5.i
+6.iii
+7.iii
+8.ii
+9.iii
+10.i
+11.iii
+12.iv
+13.iii
+14.ii
+15.i
+16.i
+17.ii
+18.iii
+19.iv
+20.i
+
+C
+1.#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    long int n;
+    cin >> n;
+    int arr[n];
+    int count =0;
+    for(int i=0;i<n;i++)
+        cin >> arr[i];
+    for(int i=0;i<n;i++)
+    {
+        for(int j=n-1;j>=0;j--)
+        {
+            if(arr[i]==arr[j])
+                count ++;
+        }
+    }
+    if(count!=0)
+        cout << "YES";
+    else
+        cout << "NO";
+}
+2.#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    string s;
+    cin >> s;
+    int n=s.size();
+    int count=0;
+    for(int i=0;i<n;i++)
+    {
+        for(int j=n-1;j>=0;j--)
+        {
+            if(s[i]==s[j])
+                count ++;
+        }
+    }
+    int check=0;
+    if(n%2==0)
+        check=count/n;
+    else
+        check=count/(n-1);
+    if(check==n/2)
+        cout << "YES";
+    else
+        cout << "NO";
+}
+4.#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int n,m;
+    cin >> n >> m;
+    int count;
+    char arr[n][m];
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<m;j++)
+        {
+            cin >> arr[i][j];
+        }
+    }
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<m;j++)
+        {
+            if(arr[i][j]!='*')
+            {
+                if(arr[i+1][j+1]=='*')
+                    count++;
+                if(arr[i][j+1]=='*')
+                    count++;
+                if(arr[i+1][j]=='*')
+                    count++;
+                if(i>0)
+                {
+                    if(arr[i-1][j]=='*')
+                        count++;
+                    if(arr[i-1][j+1]=='*')
+                        count++;
+                }
+                if(j>0)
+                {
+                    if(arr[i][j-1]=='*')
+                        count++;
+                    if(arr[i+1][j-1]=='*')
+                        count++;}
+                if(i>0&&j>0)
+                {if(arr[i-1][j-1]=='*')
+                    count++;}
+                arr[i][j]=char(count+48);
+                count = 0;
+            }
+        }
+    }
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<m;j++)
+        {
+            cout << arr[i][j] << ' ';
+        }
+        cout << endl;
+    }
+}
