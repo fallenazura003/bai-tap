@@ -1,0 +1,7 @@
+A
+1.In ra địa chỉ của phần tử đầu tiên của mảng.
+2.Hàm không in ra giá trị. Lí do: Không có điều kiện dừng của đệ quy.
+3.Không trả về giá trị. Lí do: Hàm không xác định được những trường hợp khác để có thể tiến hành đệ quy vào sâu.
+4.Hàm không trả về giá trị.Lỗi tràn bộ nhớ. Lí do: Không đủ bộ nhớ để thực hiện hết các trường hợp đệ quy.
+5.Thời gian chạy tăng đáng kể nếu lấy n đủ lớn, vì thực hiện lặp nhiều trường hợp đệ quy.
+6.Khoảng 100 tầng
