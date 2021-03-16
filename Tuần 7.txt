@@ -1,0 +1,90 @@
+A
+1.
+2.#include <iostream>
+using namespace std;
+void test(int a[])
+{
+    cout << sizeof(a);
+}
+int main()
+{
+    int a[5];
+    cout << sizeof(a) << endl;
+    test(a);
+    return 0;
+}
+3.#include <iostream>
+using namespace std;
+
+int counteven(int *arr, int n)
+{
+    int dem = 0;
+    for (int i = 0; i < n; i++)
+    {
+        if (*(arr + i) % 2 == 0) dem++;
+    }
+    return dem;
+}
+int main()
+{
+    int a[20] = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
+    cout << counteven(a,5) << " " << counteven(a+15,5);
+    return 0;
+}
+4.#include <iostream>
+
+using namespace std;
+
+int search(int key, int *a, int low, int high)
+{
+    if (low > high) return -1;
+    int mid = (low + high) / 2;
+    if (a[mid] == key) return mid;
+    if (a[mid] > key) return search(key, a, low, mid-1);
+    return search(key, a, mid+1, high);
+}
+int main()
+{
+    int arr[9] = {2, 7, 11, 12, 14, 21, 55, 64, 99};
+    int* a = arr;
+    int low = 0, high = 8;
+    int mid = (low + high)/2;
+    int key; cin >> key;
+    cout << search(key,arr,0,9) << endl;
+    return 0;
+}
+5.#include <iostream>
+using namespace std;
+
+char* weird_string() {
+   char c[6] = "123345";
+   return c;
+}
+
+int main()
+{
+    cout << weird_string();
+    return 0;
+}
+6.#include <iostream>
+
+using namespace std;
+
+int main() {
+	cout << "Number of command-line arguments: " << argc << endl;
+	for (int i = 0; i < argc; i++) {
+		cout << "Argument #" << i << ": _" << argv[i] << "_\n";
+	}
+	return 0;
+}
+7.
+
+B
+1.
+*p3=B ,p3= 0x5678
+*p3=A ,p3= 0x5678
+*p1=A ,p1= 0x1234
+2.
+*p=5
+3.
+lỗi gán sai kiểu biến cho con trỏ.
