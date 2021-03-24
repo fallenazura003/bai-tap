@@ -1,0 +1,100 @@
+A
+1.
+2.
+Lỗi thất thoát bộ nhớ do không truy cập được vào vùng bộ nhớ mà con trỏ p đã trỏ tới.
+3.
+Lệnh cerr << "a after deleting c: " << '_'<< a << '_' << endl; không chạy như mong muốn vì chương trình đã gặp lỗi khi thực thi delete c trong khi c không được cấp phát động.
+C
+1.
+char* reverse(const char *a){
+    char* s= new char[strlen(a)+1];
+    for(int i=0;i<strlen(a);i++){
+        *(s+i)=*(a+strlen(a)-i-1);
+    }
+    s[strlen(a)]='\0';
+    return s;
+}
+
+char* delete_char(const char* a, char c){
+    char* s=new char[strlen(a)+1];
+    for(int i=0;i<strlen(a);i++) *(s+i)=*(a+i);
+    for(int i=0;i<strlen(a);i++){
+        if(*(s+i)==c){
+            for(int j=i;j<strlen(s);j++){
+                *(s+j)=*(s+j+1);
+            }
+            i--;
+        }
+    }s[strlen(s)]='\0';
+    return s;
+}
+
+char* pad_right(const char* a, int n){
+    char* s=new char[n+1];
+    for(int i=0;i<n;i++){
+        if(i>=strlen(a)){
+            *(s+i)=' ';
+        }else{
+            *(s+i)=*(a+i);
+        }
+    }s[n]='\0';
+    return s;
+}
+
+char* pad_left(const char* a, int n){
+    char* s=new char[n+1];
+    int aa=0;
+    for(int i=0;i<n;i++){
+        if(i>=n-strlen(a)){
+            *(s+i)=*(a+aa);
+            aa++;
+        }else{
+            *(s+i)=' ';
+        }
+    }s[n]='\0';
+    return s;
+}
+
+char* truncate(const char* a, int n){
+    char* s=new char[n+1];
+    for(int i=0;i<n;i++) *(s+i)=*(a+i);
+    s[n]='\0';
+    return s;
+}
+
+bool is_palindrome(char a[]){
+    for(int i=0;i<strlen(a)/2;i++){
+        if(*(a+i)!=*(a+strlen(a)-i-1)) return false;
+    }
+    return true;
+}
+
+char* trim_left(const char* a){
+    int n=0;
+    for(int i=0;i<strlen(a);i++){
+        if(*(a+i)!=' ') break;
+        else{
+            n++;
+        }
+    }
+    char* s=new char[strlen(a)-n+1];
+    for(int i=0;i<strlen(a)-n;i++){
+        *(s+i)=*(a+n+i);
+    }
+    //s[strlen(a)-n]='\0';
+    return s;
+}
+
+char* trim_right(const char* a) {
+    int n=0;
+    for(int i=strlen(a)-1;i>=0;i--){
+        if(*(a+i)!=' '){
+            break;
+        }
+        n++;
+    }
+    char* s=new char[strlen(a)-n+1];
+    for(int i=0;i<strlen(a)-n;i++) *(s+i)=*(a+i);
+    s[strlen(a)-n]='\0';
+    return s;
+}
