@@ -1,0 +1,29 @@
+A
+1.
+#include<iostream>
+
+using namespace std;
+struct Point
+{
+    double x;
+    double y;
+    void print(Point a)
+    {
+        cout << "x: "<<a.x<<endl;
+        cout << "y: "<<a.y<<endl;
+    }
+};
+void print(Point a)
+    {
+        cout << "x: "<<a.x<<endl;
+        cout << "y: "<<a.y<<endl;
+    }
+int main()
+{
+    Point a;
+    cin >> a.x;
+    cin >> a.y;
+    print(a);
+    return 0;
+}
+2.
