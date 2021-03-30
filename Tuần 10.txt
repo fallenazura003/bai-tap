@@ -1,0 +1,159 @@
+A.
+1.#include<iostream>
+using namespace std;
+
+struct point
+{
+	int x,y;
+	point(){};
+	point(int _x, int _y): x(_x) , y(_y){
+	};
+		
+};
+void print(const point& a)
+{
+	cout << '(' << a.x << ',' << a.y << ')';
+}
+int main()
+{
+	point a(9,9);
+	print(a);
+	return 0;
+}
+2.#include<iostream>
+using namespace std;
+
+struct point
+{
+	int x,y;
+	point(){};
+	point(int _x, int _y): x(_x) , y(_y){
+	};
+		
+};
+void print1(const point& a)
+{
+	cout << '(' << a.x << ',' << a.y << ')'<<endl;
+	cout << &a<<endl;
+}
+
+void print2(const point a)
+{
+	cout << '(' << a.x << ',' << a.y << ')'<<endl;
+	cout << &a << endl;
+}
+
+int main()
+{
+	point a(9,9);
+	cout << "dia chi cua a la" << &a << endl;
+	print1(a);
+	print2(a);
+	return 0;
+}
+3.#include<iostream>
+using namespace std;
+
+struct point
+{
+	int x,y;
+	point(){};
+	point(int _x, int _y): x(_x) , y(_y){
+	};
+		
+};
+
+point mid_point(const point& a,const point& b)
+{
+	point mid;
+	mid.x = (a.x + b.x)/2;
+	mid.y = (a.y + b.y)/2;
+	return mid;
+}
+int main()
+{
+	point a(9,9);
+	point b(23,10);
+	point c;
+	c= mid_point(a,b);
+	cout << '(' << c.x << ',' << c.y << ')';
+	return 0;
+}
+4.#include<iostream>
+using namespace std;
+
+struct point
+{
+	int x,y;
+	point(){};
+	point(int _x, int _y): x(_x) , y(_y){
+	};
+		
+};
+int main()
+{
+	point a(9,9);
+	point b(23,10);
+	cout << &a <<' ' << &a.x << " " << &a.y;
+	return 0;
+}
+// địa chỉ của a trùng với địa chỉ của a.x, địa chỉ của a,y cách a.x 4 byte.
+5.
+#include<iostream>
+using namespace std;
+struct azura{
+    int n;
+    int *a;
+    azura(int _n=0) : n(_n){
+        a=new int[n];
+    };
+    ~azura(){
+        delete [] a;
+    };
+    void print(){
+        cout << "n: " << n << endl;
+        cout << a << endl;
+    }
+};
+
+int main (){
+    azura a(4);
+    azura b=a;
+    a.print();
+    b.print();
+    return 0;
+}
+C
+1.#include<iostream>
+#include<cstring>
+using namespace std;
+struct String{
+    int n;
+    char* str;
+    String(const char* s){
+        n=strlen(s);
+        str=new char[n];
+        strncpy(str,s,n);
+    }
+    ~String(){
+        delete [] str;
+    }
+    void print(){cout << str << endl;}
+     void append(const char* ss){
+        int l=n+strlen(ss);
+        char* sstr=new char[l];
+        strncpy(sstr,str,n);
+        for(int i=n;i<l;i++){
+            sstr[i]=ss[i-n];
+        }
+        sstr[l]='\0';
+        delete str;
+        str=sstr;
+    }
+};
+int main (){
+    String s("Hi");
+    s.append(" there");
+    cout << s;
+    return 0;
+}
